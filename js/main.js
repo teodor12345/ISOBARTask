@@ -8,7 +8,7 @@ $(document).ready(() => {
 
 
 $(document).ready(() => {
-  $("#go").on('click',(e) => {
+  $("#searchingType").on('click',(e) => {
     e.preventDefault();
     let searchbygenre = $("#select").val();
     getMovieByGenre(searchbygenre);
