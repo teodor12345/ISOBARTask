@@ -97,13 +97,13 @@ function   getMovieByGenre(searchbygenre){
 }
 
 
-// $('#picker').datetimepicker({
-//   timepicker: false,
-//   datepicker: true,
-//   format: 'Y-m-d H:i', // formatDate
-//   hours12: false,
-//   step: 1
-// })
+ // $('#picker').datetimepicker({
+ //  timepicker: false,
+ //  datepicker: true,
+ // format: 'Y-m-d H:i', // formatDate
+//  hours12: false,
+ //  step: 1
+ // })
 
   
 
