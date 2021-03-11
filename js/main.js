@@ -1,14 +1,22 @@
 $(document).ready(() => {
   $("#searchForm").on('submit', (e) => {
     e.preventDefault();
-    let searchText = $("#searchText").val();
+    let searchText = $("#searchText").val()
+    
+    getMovies(searchText);
+  });
+});
+$(document).ready(() => {
+  $("#searchType").on('submit', (e) => {
+    e.preventDefault();
+    let searchText = $("#selectType").val()
     getMovies(searchText);
   });
 });
 
 function getMovies(searchText,){
  
-  axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchText )
+  axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchText + selectType )
     .then(function (response) {
       let movies = response.data.results;
       let output = '';
