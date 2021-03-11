@@ -1,22 +1,31 @@
 $(document).ready(() => {
   $("#searchForm").on('submit', (e) => {
     e.preventDefault();
-    let searchText = $("#searchText").val()
-    
-    getMovies(searchText);
-  });
-});
-$(document).ready(() => {
-  $("#searchType").on('submit', (e) => {
-    e.preventDefault();
-    let searchText = $("#selectType").val()
+    let searchText = $("#searchText").val();
     getMovies(searchText);
   });
 });
 
-function getMovies(searchText,){
- 
-  axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchText + selectType )
+
+$(document).ready(() => {
+  $("#go").on('click',(e) => {
+    e.preventDefault();
+    let searchbygenre = $("#select").val();
+    getMovieByGenre(searchbygenre);
+  });});
+  
+  
+$(document).ready(() => {
+  $("#searchFormbyNumber").on('submit',(e) => {
+    e.preventDefault();
+    let searchbyyear = $("#picker").val();
+    getMoviesByYear(searchbyyear);
+  });});
+  
+
+function getMoviesByYear(searchbyyear){
+
+  axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchbyyear )
     .then(function (response) {
       let movies = response.data.results;
       let output = '';
@@ -37,8 +46,9 @@ function getMovies(searchText,){
       console.log(error);
     });
 }
+
 function getMovies(searchText){
- 
+  
   axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchText )
     .then(function (response) {
       let movies = response.data.results;
@@ -61,6 +71,40 @@ function getMovies(searchText){
     });
 }
 
+
+function   getMovieByGenre(searchbygenre){
+  
+  axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchbygenre )
+    .then(function (response) {
+      let movies = response.data.results;
+      let output = '';
+      $.each(movies, (index, movie) => {
+        output+=`
+          <div class="col-md-3">
+            <div class="well text-center">
+              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+              <h5>${movie.title}</h5>
+              <a onclick="movieSelected('${movie.id}')" class="btn btn-primary" href="#">Movie Details</a>
+            </div>
+          </div>
+        `;
+      });
+      $('#movies').html(output);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+
+// $('#picker').datetimepicker({
+//   timepicker: false,
+//   datepicker: true,
+//   format: 'Y-m-d H:i', // formatDate
+//   hours12: false,
+//   step: 1
+// })
+
   
 
 
@@ -73,9 +117,11 @@ function movieSelected(id){
 
 function getMovie(){
   let movieId = sessionStorage.getItem('movieId');
+ 
   axios.get("https://api.themoviedb.org/3/movie/" + movieId + "?api_key=98325a9d3ed3ec225e41ccc4d360c817")
     .then(function (response) {
     let movie = response.data;
+    
     let output = `
         <div class="row">
           <div class="col-md-4">
@@ -105,11 +151,3 @@ function getMovie(){
       console.log(error);
     });
 }
-$('#picker').datetimepicker({
-  timepicker: false,
-  datepicker: true,     // for the year filter
-  format: 'Y-m-d H:i', // formatDate
-  hours12: false,
-  step: 1
-})
-
