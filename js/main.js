@@ -52,13 +52,6 @@ function getMovies(searchText){
       console.log(error);
     });
 }
-$('#picker').datetimepicker({
-  timepicker: false,
-  datepicker: true,
-  format: 'Y-m-d H:i', // formatDate
-  hours12: false,
-  step: 1
-})
 
   
 
@@ -104,3 +97,11 @@ function getMovie(){
       console.log(error);
     });
 }
+$('#picker').datetimepicker({
+  timepicker: false,
+  datepicker: true,     // for the year filter
+  format: 'Y-m-d H:i', // formatDate
+  hours12: false,
+  step: 1
+})
+
