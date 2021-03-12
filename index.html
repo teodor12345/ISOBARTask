@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Movie Info</title>
-    <!-- Bootstrap core CSS -->
+   
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
@@ -27,26 +26,21 @@
         <h3 class="text-center">Search For Any Movie</h3>
         <form id="searchForm">
           <input type="text"  class="form-control" id="searchText" placeholder="Search Movie...."/>
-          
         </form>
-        <form id="searchingType">
+        <form id="searchingtype">
          <select class="form-control" id="select" >
-            <option> </option>
-            <option>Comedy</option>
-            <option>Horror</option>
-            <option>Adventure</option>
-            <option>Documentery</option>
-            <option>Drama</option>
-            <option>War</option>
-          
+            <option> Type ...</option>
+            <option>Movie</option>
+            <option>TV Show</option>
+            
         </select>
         
         </form>
 
         <form id="searchFormbyNumber">
-          <input type="number"class="form-control" id="picker" placeholder="Search Movie by year...."/>
+          <input type="number"class="form-control" id="picker" placeholder=" Year...."/>
         </form>
-        
+        <button id="search">Search</button>
       </div>
     </div>
 
@@ -55,7 +49,7 @@
     </div>
 
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+   
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/axios.min.js"></script>

@@ -11,3 +11,11 @@
     height: 240px;
   }
 }
+#search{
+  width: 10%;
+  background:rgb(82, 80, 80);
+  border: 1px black;
+  margin-left: 90%;
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+}
