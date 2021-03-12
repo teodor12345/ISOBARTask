@@ -36,9 +36,20 @@
   $("#searchForm").on('submit', (e) => {
     e.preventDefault();
     let searchText = $("#searchText").val();
-    
     getMovies(searchText);
   });
+  $("#searchFormByNumber").on('submit',(e)=>{
+    e.preventDefault();
+    let searchNumber=$("#serachNumber").val();
+    getMovie(searchNumber);
+  });
+  $("#searchType").on('click',(e)=>{
+    e.preventDefault();
+    let selectType=$("#selectType").val();
+    getMovie(selectType);
+  });
+  
+  
 });
 
 
@@ -46,7 +57,7 @@
 
 
 
-function getMovies(searchText,){
+function getMovies(searchText,searchNumber,selectType){
  
   axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchText )
     .then(function (response) {
@@ -62,7 +73,9 @@ function getMovies(searchText,){
             </div>
           </div>
         `;
-      });
+      }); 
+      
+      
       $('#movies').html(output);
     })
     .catch(function (error) {
