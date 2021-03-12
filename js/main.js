@@ -73,8 +73,7 @@ function getMovies(searchText,searchNumber,selectType){
             </div>
           </div>
         `;
-      }); 
-      
+      });
       
       $('#movies').html(output);
     })
