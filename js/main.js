@@ -41,12 +41,12 @@
   $("#searchFormByNumber").on('submit',(e)=>{
     e.preventDefault();
     let searchNumber=$("#serachNumber").val();
-    getMovie(searchNumber);
+    getMovies(searchNumber);
   });
-  $("#searchType").on('click',(e)=>{
+  $("#search").on('click',(e)=>{
     e.preventDefault();
     let selectType=$("#selectType").val();
-    getMovie(selectType);
+    getMovies(selectType);
   });
   
   
