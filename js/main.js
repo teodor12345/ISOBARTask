@@ -47,9 +47,7 @@
     e.preventDefault();
     let selectType=$("#selectType").val();
     getMovies(selectType);
-  });
-  
-  
+  }); 
 });
 
 
@@ -58,7 +56,7 @@
 
 
 function getMovies(searchText,searchNumber,selectType){
- 
+  
   axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchText )
     .then(function (response) {
       let movies = response.data.results;
@@ -80,6 +78,7 @@ function getMovies(searchText,searchNumber,selectType){
     .catch(function (error) {
       console.log(error);
     });
+    
 }
 
 
