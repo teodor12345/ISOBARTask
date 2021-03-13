@@ -22,26 +22,36 @@
     </nav>
 
     <div class="container">
-      <div class="jumbotron">
-        <h3 class="text-center">Search For Any Movie</h3>
-        <form id="searchForm">
-          <input type="text"  class="form-control" id="searchText" placeholder="Search Movie...."/>
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline" id="searchForm">
+          <input data-name="title" class="form-control mr-sm-2 act" type="search" placeholder="Search" aria-label="Search">
+          <select data-name="type" class="form-control mr-sm-2 act" id="selectType" type="search"  aria-label="SearchByType">
+            <option value="movie"  default="true"> Movies </option>
+            <option  value="series" > Series </option>
+            
+            <option  value="episode" >  Episode </option>         
+          </select>
+          
+          <input data-name="year" type="number"class="form-control mr-sm-2"  id="searchNumber" placeholder=" Year...."/>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        <form id="searchType">
-         <select class="form-control" id="selectType" >
+      </nav>
+
+      <!-- <div class="jumbotron">
+        <h3 class="text-center">Search For Any Movie</h3>
+        <form class="for" id="searchForm">
+          <input type="text"  class="form-control" id="searchText" placeholder="Search Movie...."/>
+
+          <select class="form-control" id="selectType" >
             <option> Type ...</option>
             <option> Movie </option>
-            <option> TV Show </option>
-            
-        </select>
+            <option> TV Show </option>         
+          </select>
         
-        </form>
-
-        <form id="searchFormByNumber">
           <input type="number"class="form-control" id="searchNumber" placeholder=" Year...."/>
         </form>
         <button id="search"> Search</button>
-      </div>
+      </div> -->
     </div>
 
     <div class="container">

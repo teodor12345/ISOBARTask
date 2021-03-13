@@ -1,7 +1,6 @@
  
  /*
  //initial values
- const api_key="98325a9d3ed3ec225e41ccc4d360c817";
  
  const url="https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817";
  
@@ -32,68 +31,88 @@
  }*/
 
  
- $(document).ready(() => {
-  $("#searchForm").on('submit', (e) => {
-    e.preventDefault();
-    let searchText = $("#searchText").val();
-    getMovies(searchText);
-  });
-  $("#searchFormByNumber").on('submit',(e)=>{
-    e.preventDefault();
-    let searchNumber=$("#serachNumber").val();
-    getMovies(searchNumber);
-  });
-  $("#search").on('click',(e)=>{
-    e.preventDefault();
-    let selectType=$("#selectType").val();
-    getMovies(selectType);
-  }); 
-});
 
-
-
-
-
-
-function getMovies(searchText,searchNumber,selectType){
-  
-  axios.get("https://api.themoviedb.org/3/search/movie?api_key=98325a9d3ed3ec225e41ccc4d360c817&language=en-US&query=" + searchText )
-    .then(function (response) {
-      let movies = response.data.results;
-      let output = '';
-      $.each(movies, (index, movie) => {
-        output+=`
-          <div class="col-md-3">
-            <div class="well text-center">
-              <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-              <h5>${movie.title}</h5>
-              <a onclick="movieSelected('${movie.id}')" class="btn btn-primary" href="#">Movie Details</a>
-            </div>
-          </div>
-        `;
-      });
-      
-      $('#movies').html(output);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-    
-}
-
-
-
-
-
-
-
-// $('#picker').datetimepicker({
+//  $('#searchNumber').datetimepicker({
 //   timepicker: false,
 //   datepicker: true,
 //   format: 'Y-m-d H:i', // formatDate
 //   hours12: false,
 //   step: 1
 // })
+
+ 
+ $(document).ready(() => {
+
+  var filterVlaues = {
+    title: '',
+    type: 'movie',
+    year: 0
+  }
+
+  $( ".form-control" ).change(function() {
+    
+    filterVlaues[$(this).data('name')] = $(this).val()  
+    console.log(filterVlaues)
+    getMoviesApi();
+  });
+
+  // $("#searchForm").on('submit', function(e) {
+  //   e.preventDefault()
+  // })
+     
+  
+    
+    
+    function getMoviesApi(){
+      
+      const api_key="f574ff9";
+      const url = `http://www.omdbapi.com/?apikey=${api_key}&s=${filterVlaues.title}&type=${filterVlaues.type}&r=jsonx${filterVlaues.year !== 0 ? "&y=" + filterVlaues.year : '' }`; 
+      // console.log(url)
+      axios.get(url)
+        .then(function (response) {
+          console.log(response)
+          let movies = response.data.Search;
+          let output = '';
+          $.each(movies, (index, movie) => {
+            console.log(movie)
+            output+=`
+              <div class="col-md-3">
+                <div class="well text-center">
+                  <img src="https://image.tmdb.org/t/p/w500${movie.Poster}">
+                  <h5>${movie.Title}</h5>
+                  <a onclick="movieSelected('${movie.id}')" class="btn btn-primary" href="#">Movie Details</a>
+                </div>
+              </div>
+            `;
+          });
+    
+          $('#movies').html(output);
+    
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        
+    }
+
+});
+
+
+
+  // $("#searchFormByNumber").on('submit',(e)=>{
+  //   e.preventDefault();
+  //   getMoviesApi (searchNumber);
+  // });
+  // $("#search").on('click',(e)=>{
+  //   e.preventDefault();
+  //   getMoviesApi(selectType);
+  // }); 
+
+
+
+
+
+
 
   
 
