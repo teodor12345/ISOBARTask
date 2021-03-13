@@ -61,7 +61,7 @@
     
     
     function getMoviesApi(){
-      const Image_URL="https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+      
       const api_key="f574ff9";
       const url = `http://www.omdbapi.com/?apikey=${api_key}&s=${filterVlaues.title}&type=${filterVlaues.type}&r=jsonx${filterVlaues.year !== 0 ? "&y=" + filterVlaues.year : '' }`; 
       // console.log(url)
@@ -75,7 +75,7 @@
             output+=`
               <div class="col-md-3">
                 <div class="well text-center">
-                  <img src=${Image_URL + movie.Poster}">
+                  <img src="${movie.Poster}">
                   <h5>${movie.Title}</h5>
                   <a onclick="movieSelected('${movie.id}')" class="btn btn-primary" href="#">Movie Details</a>
                 </div>
