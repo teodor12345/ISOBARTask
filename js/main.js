@@ -14,7 +14,11 @@
     filterVlaues[$(this).data('name')] = $(this).val()  
     console.log(filterVlaues)
     getMoviesApi();
+
+   
   });
+  
+  
 
  
   
@@ -69,7 +73,7 @@ function movieSelected(id){
 function getMovie(){
   const api_key="f574ff9";
   const url = `http://www.omdbapi.com/?apikey=${api_key}`; 
-  axios.get( url ,  )
+  axios.get( url   )
     .then(function (response) { 
     let movie = response.data;
     let output = `
@@ -89,7 +93,6 @@ function getMovie(){
             <h3>Plot</h3>
             ${movie.overview}
             <hr>
-           
             <a href="index.html" class="btn btn-default">Go Back To Search</a>
           </div>
         </div>
