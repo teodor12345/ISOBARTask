@@ -20,12 +20,15 @@
     padding: 20px 20px;
     color: #2a9fd6;
     margin: auto;
+    
    
   }
 }
 body {
   margin: 0;
-  
+  background-image: url(./images/blue\ movie.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
@@ -66,4 +69,16 @@ body {
   text-align: center!important;
   font-size: 2rem;
 }
- 
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: .75rem 1.25rem;
+  background-color:#2a9fd6;
+  border: 1px solid #2a9fd6;
+}
+a {
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+  
+}
