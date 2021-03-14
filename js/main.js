@@ -6,7 +6,8 @@
   var filterVlaues = {
     title: '',
     type: 'movie',
-    year: 0
+    year: 0,
+    
   }
 
   $( ".form-control" ).change(function() {
@@ -34,13 +35,13 @@
           let movies = response.data.Search;
           let output = '';
           $.each(movies, (index, movie) => {
-            console.log(movie)
+            console.log(movie);
             output+=`
               <div class="col-md-3">
                 <div class="well text-center">
                   <img src="${movie.Poster}">
                   <h5>${movie.Title}</h5>
-                  <a onclick="movieSelected('${movie.id}')" class="btn btn-primary" href="#">Movie Details</a>
+                  <a onclick="movieSelected('${movie.i}')" class="btn btn-primary" href="#">Movie Details</a>
                 </div>
               </div>
             `;
@@ -70,7 +71,7 @@ function movieSelected(id){
 }
 
 
-function getMovie(){
+function getMovieInfo(){
   const api_key="f574ff9";
   const url = `http://www.omdbapi.com/?apikey=${api_key}`; 
   axios.get( url  )
