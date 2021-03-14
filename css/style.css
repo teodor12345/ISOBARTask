@@ -29,6 +29,7 @@ body {
   background-image: url(./images/blue\ movie.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  color: aliceblue;
 }
 
 
@@ -81,4 +82,14 @@ a {
   text-decoration: none;
   background-color: transparent;
   
+}
+.navbar-brand {
+  display: inline-block;
+  padding-top: .335938rem;
+  padding-bottom: .335938rem;
+  margin-right: 3rem;
+  font-size: 6.09375rem;
+  line-height: inherit;
+  white-space: nowrap;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }

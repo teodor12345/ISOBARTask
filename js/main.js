@@ -73,7 +73,7 @@ function movieSelected(id){
 function getMovie(){
   const api_key="f574ff9";
   const url = `http://www.omdbapi.com/?apikey=${api_key}`; 
-  axios.get( url   )
+  axios.get( url  )
     .then(function (response) { 
     let movie = response.data;
     let output = `
