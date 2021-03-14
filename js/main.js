@@ -40,7 +40,7 @@
                 <div class="well text-center">
                   <img src="${movie.Poster}">
                   <h5>${movie.Title}</h5>
-                  <a onclick="('${movie.id}')" class="btn btn-primary" href="#">Movie Details</a>
+                  <a onclick="('${movie.imdbID}')" class="btn btn-primary" href="https://www.imdb.com/">IMBD VIEW</a>
                 </div>
               </div>
             `;
