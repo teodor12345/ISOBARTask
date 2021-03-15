@@ -1,6 +1,7 @@
  
  
- 
+ // define the filters outside of scoop
+ //3 filters Search by name, Serach by Type,Serach by year
  $(document).ready(() => {
 
   var filterVlaues = {
@@ -11,7 +12,7 @@
     
     
   }
-
+//use the change function
   $( ".form-control" ).change(function() {
     
     filterVlaues[$(this).data('name')] = $(this).val()  
@@ -25,7 +26,8 @@
 
  
   
-    
+    //Define Function with const API key from mail,define cost url with filter values,use axios to get url,function response where we show the results
+    //let the output show Movie Poster,Movie tittle,linke to the imbd 
     
     function getMoviesApi(){
       
