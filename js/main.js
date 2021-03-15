@@ -4,9 +4,12 @@
  $(document).ready(() => {
 
   var filterVlaues = {
+    
     title: '',
     type: 'movie',
-    year: 0
+    year: 0,
+    
+    
   }
 
   $( ".form-control" ).change(function() {
@@ -40,7 +43,7 @@
                 <div class="well text-center">
                   <img src="${movie.Poster}">
                   <h5>${movie.Title}</h5>
-                  <a onclick="('${movie.imdbID}')" class="btn btn-primary" href="https://www.imdb.com/">IMBD VIEW</a>
+                  <a onclick=${movie.imdbID} class="btn btn-primary" href="https://www.imdb.com/">IMBD VIEW</a>
                 </div>
               </div>
             `;
